@@ -8,6 +8,7 @@ import Footer from "./page/components/Footer/Footer";
 import Login from "./page/auth/Login";
 import DashBoard from "./page/DashBoard/DashBoard";
 import Blog from "./page/Blog/Blog";
+import TuyenSinh from "./page/TuyenSinh/TuyenSinh";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route element={<Login />} path={router.admin.login} />
                 <Route element={<DashBoard />} path={router.admin.all} />
                 <Route element={<Blog />} path={router.blog} />
+                <Route element={<TuyenSinh />} path={router.tuyenSinh} />
             </Routes>
             <Footer />
         </>

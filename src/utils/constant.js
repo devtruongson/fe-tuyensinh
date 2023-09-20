@@ -2,7 +2,7 @@
 export const router = Object.freeze({
     home: "/",
     detailPost: "/blog/:slug",
-    ungTuyen: "/ung-tuyen",
+    tuyenSinh: "/tuyen-sinh",
     blog: "/blog/:slug",
     admin: {
         all: "/admin/*",
@@ -10,6 +10,6 @@ export const router = Object.freeze({
         dashboard: "/dashboard",
         handlePost: "/handle-post",
         allPost: "/allPost",
-        ungTuyen: "/ung-tuyen",
+        tuyenSinh: "/tuyen-sinh",
     },
 });

@@ -68,14 +68,22 @@ export default function SideBar() {
                                 Ứng Tuyển
                             </span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#" className="nav-link px-0 align-middle">
-                            <i className="bi bi-airplane-fill"></i>
-                            <span className="ms-1 d-none d-sm-inline">
-                                Đăng Xuất
-                            </span>
-                        </a>
+                        <ul
+                            className="collapse show nav flex-column ms-1"
+                            id="submenu1"
+                            data-bs-parent="#menu"
+                        >
+                            <li className="w-100">
+                                <Link
+                                    to="/admin/tuyen-sinh"
+                                    className="nav-link px-0"
+                                >
+                                    <span className="d-none d-sm-inline">
+                                        Quản lí người ứng tuyển
+                                    </span>
+                                </Link>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

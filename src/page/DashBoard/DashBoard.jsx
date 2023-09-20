@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import SideBar from "./components/sideBar/SideBar";
 import { router } from "../../utils/constant";
+import SideBar from "./components/sideBar/SideBar";
 import HomeDashBoard from "./components/HomeDashBoard/HomeDashBoard";
 import AllPost from "./components/AllPost/AllPost";
-import "./dashboard.scss";
 import PostHandle from "./components/PostHandle/PostHandle";
+import TuyenSinh from "./components/TuyenSinh/TuyenSinh";
+import "./dashboard.scss";
 
 export default function DashBoard() {
     const isLoginIn = JSON.parse(localStorage.getItem("isLoginIn"));
@@ -37,6 +38,10 @@ export default function DashBoard() {
                             <Route
                                 path={router.admin.handlePost}
                                 element={<PostHandle />}
+                            />
+                            <Route
+                                path={router.admin.tuyenSinh}
+                                element={<TuyenSinh />}
                             />
                         </Routes>
                     </div>

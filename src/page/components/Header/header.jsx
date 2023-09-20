@@ -35,15 +35,6 @@ export default function Header() {
                                     </Link>
                                 )}
                             </li>
-                            <li className="search-header">
-                                <input
-                                    type="text"
-                                    placeholder="Tìm kiếm bài viết có liên quan..."
-                                />
-                                <button>
-                                    <i className="bi bi-search"></i>
-                                </button>
-                            </li>
                         </ul>
                     </div>
                 </div>
