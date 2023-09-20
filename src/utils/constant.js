@@ -4,10 +4,12 @@ export const router = Object.freeze({
     detailPost: "/blog/:slug",
     ungTuyen: "/ung-tuyen",
     admin: {
+        all: "/admin/*",
         login: "/admin/login",
-        dashboard: "/admin/dashboard",
-        editPost: "/admin/editPost/:slug",
-        allPost: "/admin/allPost",
-        ungTuyen: "/admin/ung-tuyen",
+        dashboard: "/dashboard",
+        editPost: "/editPost/:slug",
+        handlePost: "/handle-post",
+        allPost: "/allPost",
+        ungTuyen: "/ung-tuyen",
     },
 });

@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import Logo from "../../../assets/imgs/logo.png";
 
 import "./header.scss";
+import { router } from "../../../utils/constant";
 
 export default function Header() {
+    const isLoginIn = JSON.parse(localStorage.getItem("isLoginIn"));
+
     return (
         <div className="header-wp">
             <div className="container">
@@ -18,7 +21,15 @@ export default function Header() {
                                 <Link to="/tuyen-sinh">Tuyển Sinh</Link>
                             </li>
                             <li>
-                                <Link to="/login">Đăng Nhập</Link>
+                                {isLoginIn ? (
+                                    <Link to={router.admin.dashboard}>
+                                        Trang Quản Trị
+                                    </Link>
+                                ) : (
+                                    <Link to={router.admin.login}>
+                                        Đăng Nhập
+                                    </Link>
+                                )}
                             </li>
                             <li className="search-header">
                                 <input
