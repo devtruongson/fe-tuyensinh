@@ -3,6 +3,7 @@ export const router = Object.freeze({
     home: "/",
     detailPost: "/blog/:slug",
     ungTuyen: "/ung-tuyen",
+    blog: "/blog/:slug",
     admin: {
         all: "/admin/*",
         login: "/admin/login",

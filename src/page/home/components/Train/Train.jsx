@@ -13,7 +13,7 @@ export default function Train() {
                 </p>
                 <div className="row train-wp-item">
                     <div className="col-3">
-                        <Link to="/blog/nghanh-cong-trinhf4df8d64-3bc9-422e-8850-86030d15a202">
+                        <Link to="/blog/nghanh-cong-trinhcffd47eb-32e1-4fdc-afe0-c248060bf27d">
                             <div>
                                 <i className="bi bi-terminal"></i>
                                 <p>Nghành công trình</p>

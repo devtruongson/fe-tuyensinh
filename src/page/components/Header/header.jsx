@@ -13,7 +13,9 @@ export default function Header() {
             <div className="container">
                 <div className="row">
                     <div className="col-4 left-header">
-                        <img src={Logo} alt="Hình ảnh trang chủ" />
+                        <Link to="/">
+                            <img src={Logo} alt="Hình ảnh trang chủ" />
+                        </Link>
                     </div>
                     <div className="col-8 right-header">
                         <ul>
@@ -22,7 +24,9 @@ export default function Header() {
                             </li>
                             <li>
                                 {isLoginIn ? (
-                                    <Link to={router.admin.dashboard}>
+                                    <Link
+                                        to={"/admin" + router.admin.dashboard}
+                                    >
                                         Trang Quản Trị
                                     </Link>
                                 ) : (
