@@ -16,9 +16,12 @@ export default function PostHandle() {
     const [cateBlog, setCateBlog] = useState(null);
     const [thumbnail, setThumbnail] = useState("");
 
+    const [isEdit, setIsEdit] = useState(false);
+
     const ref = useRef(null);
 
     useEffect(() => {
+        handleResetState();
         const _fetch = async () => {
             try {
                 const res = await axios.get(
@@ -36,6 +39,32 @@ export default function PostHandle() {
         };
 
         _fetch();
+    }, []);
+
+    useEffect(() => {
+        if (window.location.search.slice(6)) {
+            setIsEdit(true);
+            const fetPostEdit = async () => {
+                const res = await axios.get(
+                    "/api/v1/get-blog-by-slug" +
+                        "?slug=" +
+                        window.location.search.slice(6)
+                );
+
+                if (res && res.errCode === 0) {
+                    let dataEdit = res.blog;
+
+                    setTitle(dataEdit.title);
+                    setContentHTML(dataEdit.contentHTML);
+                    setContentMarkdown(dataEdit.contentMarkdown);
+                    setType(dataEdit.type);
+                    setThumbnail(dataEdit.thumbnail);
+                    setFilePost(dataEdit.file);
+                }
+            };
+
+            fetPostEdit();
+        }
     }, []);
 
     const onImageUpload = async (file) => {
@@ -151,19 +180,34 @@ export default function PostHandle() {
             type,
         };
 
-        const res = await axios.post("/api/v1/create-blog", dataBuild);
+        if (!isEdit) {
+            const res = await axios.post("/api/v1/create-blog", dataBuild);
 
-        if (res && res.errCode === 0) {
-            alert("Đã tạo bài viết thành công!");
-            handleResetState();
+            if (res && res.errCode === 0) {
+                alert("Đã tạo bài viết thành công!");
+                handleResetState();
+            } else {
+                alert(res.msg);
+            }
         } else {
-            alert(res.msg);
+            dataBuild.slug = window.location.search.slice(6);
+
+            const res = await axios.put("/api/v1/update-blog", dataBuild);
+
+            if (res && res.errCode === 0) {
+                alert("Bạn đã cập nhật thành công bài viết!");
+                handleResetState();
+            } else {
+                alert(res.msg);
+            }
         }
     };
 
     return (
         <div className="handle-post-wp">
-            <h2 className="text-center py-4">Tạo Bài Viết Của Bạn</h2>
+            <h2 className="text-center py-4">
+                {isEdit ? "Chỉnh sửa bài viết của bạn" : "Tạo Bài Viết Của Bạn"}
+            </h2>
             <div>
                 <div className="nav-post">
                     <input
@@ -225,6 +269,7 @@ export default function PostHandle() {
                     </div>
                 </div>
                 <MdEditor
+                    value={contentMarkdown}
                     style={{ height: "500px" }}
                     renderHTML={(text) => mdParser.render(text)}
                     onImageUpload={onImageUpload}
@@ -235,7 +280,7 @@ export default function PostHandle() {
                         onClick={handleSubmitData}
                         className="btn btn-primary"
                     >
-                        Tạo Bài Viết
+                        {isEdit ? "Cập nhật" : "Tạo bài viết"}
                     </button>
                 </div>
             </div>

@@ -7,7 +7,6 @@ export const router = Object.freeze({
         all: "/admin/*",
         login: "/admin/login",
         dashboard: "/dashboard",
-        editPost: "/editPost/:slug",
         handlePost: "/handle-post",
         allPost: "/allPost",
         ungTuyen: "/ung-tuyen",

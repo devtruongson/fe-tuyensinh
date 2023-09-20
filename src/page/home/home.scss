@@ -69,6 +69,11 @@
     .blog-home-wp {
         padding: 20px 0;
 
+        a {
+            color          : currentColor;
+            text-decoration: none;
+        }
+
         h2 {
             font-weight: 600;
             text-align : center;
@@ -177,6 +182,11 @@
         padding            : 40px 0;
         color              : #fff;
         text-align         : center;
+
+        a {
+            color          : currentColor;
+            text-decoration: none;
+        }
 
         h2 {
             margin-bottom: 10px;

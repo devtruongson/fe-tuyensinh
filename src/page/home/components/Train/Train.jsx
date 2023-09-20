@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Train() {
     return (
         <div className="train-wp">
@@ -11,28 +13,36 @@ export default function Train() {
                 </p>
                 <div className="row train-wp-item">
                     <div className="col-3">
-                        <div>
-                            <i className="bi bi-terminal"></i>
-                            <p>Nghành công trình</p>
-                        </div>
+                        <Link to="/blog/nghanh-cong-trinhf4df8d64-3bc9-422e-8850-86030d15a202">
+                            <div>
+                                <i className="bi bi-terminal"></i>
+                                <p>Nghành công trình</p>
+                            </div>
+                        </Link>
                     </div>
                     <div className="col-3">
-                        <div>
-                            <i className="bi bi-terminal"></i>
-                            <p>Nghành công trình</p>
-                        </div>
+                        <Link to="/blog/nganh-co-khi58982c95-a6e5-4960-9852-52b102ab1718">
+                            <div>
+                                <i className="bi bi-textarea"></i>
+                                <p>Ngành cơ khí</p>
+                            </div>
+                        </Link>
                     </div>
                     <div className="col-3">
-                        <div>
-                            <i className="bi bi-terminal"></i>
-                            <p>Nghành công trình</p>
-                        </div>
+                        <Link to="/blog/nganh-kinh-te2ce8532f-30c3-43bc-80ea-d433e4469e53">
+                            <div>
+                                <i className="bi bi-ticket"></i>
+                                <p>Nghành công trình</p>
+                            </div>
+                        </Link>
                     </div>
                     <div className="col-3">
-                        <div>
-                            <i className="bi bi-terminal"></i>
-                            <p>Nghành công trình</p>
-                        </div>
+                        <Link to="/blog/cong-nghe-thong-tin021faa5d-c2b9-4c72-ae54-626fe1fb0d9b">
+                            <div>
+                                <i className="bi bi-transparency"></i>
+                                <p>Nghành công nghệ thông tin</p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
