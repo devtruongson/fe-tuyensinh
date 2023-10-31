@@ -8,6 +8,13 @@ import { router } from "../../../utils/constant";
 export default function Header() {
     const isLoginIn = JSON.parse(localStorage.getItem("isLoginIn"));
 
+    const handleLogOut = (e) => {
+        e.preventDefault();
+
+        localStorage.clear();
+        window.location.reload();
+    };
+
     return (
         <div className="header-wp">
             <div className="container">
@@ -33,6 +40,13 @@ export default function Header() {
                                     <Link to={router.admin.login}>
                                         Đăng Nhập
                                     </Link>
+                                )}
+                            </li>
+                            <li>
+                                {isLoginIn && (
+                                    <a href="/" onClick={handleLogOut}>
+                                        Đăng Xuất
+                                    </a>
                                 )}
                             </li>
                         </ul>
